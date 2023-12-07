@@ -225,7 +225,10 @@ order by salary desc;
 
 -- order by에서 여러 컬럼을 정렬할 때, 앞의 컬럼을 모두 정렬하고, 같은 값이 존재할 때 같은 값에 대해서 뒤의 컬럼을 정렬
   -- 답변형 게시판 만들 때 사용됨....
-  
+
+
+-- job : 오름 차순 정렬, dno : job 의 동일한 값에 대해서 dno를 오름차순, 
+                      -- ename : dno에서 동일한 값에 대해서 ename을 오름차순정렬
 select dno, ename
 from employee
 order by dno asc, ename desc;
@@ -233,6 +236,10 @@ order by dno asc, ename desc;
 select job, dno, ename 
 from employee
 order by job asc, dno;
+
+select dno , job , ename 
+from employee
+order by dno desc, job asc, ename desc ; 
    
 
 

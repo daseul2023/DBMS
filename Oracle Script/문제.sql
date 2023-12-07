@@ -133,4 +133,11 @@ select eno 사원번호, ename 사원이름, job 업무, salary 급여
 from employee
 where salary >= 1000 and salary <=3000;
 
+select eno 사원번호, ename 사원이름, job 업무, salary 급여
+from employee
+where salary between 1000 and 3000;
+
+
+
+
 
