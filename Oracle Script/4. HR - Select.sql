@@ -76,7 +76,7 @@ from employee;
 select distinct job
 from employee;
 
-select * from employee;
+select job from employee;
 
 -- JOB (직책)이 MAMAGER (관리자)인 사용자 정보만 출력
 select ename 사원명, job 직책
@@ -154,7 +154,7 @@ select *
 from employee
 where ename < 'D';
 
--- like in : 문자열에서 특정 값만 검색 : % : (글자 수 상관없이) 어떤것이 와도 상관없다, _ : 한글자가 어떤것이 와도 상관없다.
+-- like in : 문자열에서 특정 값만 검색 : % : (글자 수 상관없이) 어떤것이 와도 상관없다, _ : 한글자가 어떤것이 와도 상관없다.   <== 와일드카드
 -- 컬럼의 특정 값을 검색 시 사용됨.
 select * from employee
 where ename like '%LA%';
