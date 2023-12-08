@@ -28,6 +28,10 @@ select hiredate 입사일자,
 substr(hiredate, 1,2) 입사년도, substr(hiredate,4,2) 입사월
 from employee;
 
+SELECT SUBSTR(TO_CHAR(hiredate, 'YYYY'), 1, 4) AS 입사년도,
+       SUBSTR(TO_CHAR(hiredate, 'MM'), 1, 2) AS 입사달
+FROM employee;
+
 select *
 from employee;
 
