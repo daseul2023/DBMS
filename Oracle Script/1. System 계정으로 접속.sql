@@ -29,5 +29,6 @@ alter user C##HR2 quota unlimited on USERS;
 
 -- 4. 계정 삭제
 drop user C##HR2
+drop user C##HR2 cascade
 
 
