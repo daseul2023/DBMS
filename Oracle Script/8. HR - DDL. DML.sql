@@ -357,18 +357,41 @@ create table member4(
     addr varchar2(100) null constraint CK_MEMBER4_ADDR check (addr in ('서울','부산','대구')),
     jumin char(13) null constraint U_MEMBER4_JUMIN unique,             -- 중복되면 안됨.
     phone varchar2(50) not null constraint U_MEMBER4_PHONE unique,     -- 중복되면 안됨.
-    age number(3) constraint CK_MEMBER4_AGE check (age > 0 and age < 200),                    
-    weight number(5,2)                
+    age number(3) constraint CK_MEMBER4_AGE check (age > 0 and age < 200), 
+    gender char(1) constraint CK_MEMBER4_GENDER check (gender in ('w','m')),
+    weight number(5,2)
 );
 
-insert into member4 (id, pass, addr, jumin, phone, age, weight)
-values ('abc', '1234', '서울', '123456-789101','010-1111-1112', 100, 77.77);
+insert into member4 (id, pass, addr, jumin, phone, age, gender, weight)
+values ('abc', '1234', '부산', '123456-789101','010-1111-1112', 150, 'w', 77.77);
 commit;
 select * from member4;
 
+-- default : 제약 조건이 아니다. 제약 조건 이름을 부여할 수 없다.
+    -- 값을 넣을 때 값이 들어가고 값을 넣지 않을 때 default 로 설정된 값이 들어간다.
 
+create table member5(
+    id varchar2(50) not null constraint PK_MEMBER5_ID primary key,                                                
+    pass varchar2(50) constraint NN_MEMBER5_PASS not null,                
+    addr varchar2(100) null constraint CK_MEMBER5_ADDR check (addr in ('서울','부산','대구')),
+    jumin char(13) null constraint U_MEMBER5_JUMIN unique,             -- 중복되면 안됨.
+    phone varchar2(50) not null constraint U_MEMBER5_PHONE unique,     -- 중복되면 안됨.
+    age number(3) constraint CK_MEMBER5_AGE check (age > 0 and age < 200), 
+    gender char(1) constraint CK_MEMBER5_GENDER check (gender in ('w','m')),
+    weight number(5,2),
+    hiredate date default sysdate,
+    addr2 char(10) default '서울',
+    age2 number default 0
+);
 
+insert into member5 (id, pass, addr, jumin, phone, age, gender, weight)
+values ('abc', '1234', '부산', '123456-789101','010-1111-1112', 150, 'w', 77.77);
 
+commit;
+select * from member5;
+
+insert into member5 (id, pass, addr, jumin, phone, age, gender, weight, hiredate, addr2, age2)
+values ('abcd', '1234', '부산', '123456-789102','010-1111-1113', 150, 'w', 77.77, '2023-10-19', '강릉', 20);
 
 
 

@@ -108,11 +108,78 @@ values (5, 1234, '1997-7-15', '010-1111-1111', 7, 'E');
 commit;
 
 insert into today40(today_code, today_sens_value, today_intell_value, today_phy_value)
-values (5, 1234, '1997-7-15', '010-1111-1111', 7, 'E');
+values (000, 123, 111, 111);
+insert into today40(today_code, today_sens_value, today_intell_value, today_phy_value)
+values (001, 123, 111, 111);
+insert into today40(today_code, today_sens_value, today_intell_value, today_phy_value)
+values (002, 123, 111, 111);
+insert into today40(today_code, today_sens_value, today_intell_value, today_phy_value)
+values (003, 123, 111, 111);
+insert into today40(today_code, today_sens_value, today_intell_value, today_phy_value)
+values (004, 123, 111, 111);
+commit;
 
-today40(
-        today_code varchar2(6) not null constraint PK_TODAY40 primary key,
-        today_sens_value number (3),
-        today_intell_value number (3),
-        today_phy_value number (3)
+insert into nation40(nation_code, nation_name)
+values (82,'대한한국');
+insert into nation40(nation_code, nation_name)
+values (81,'미국');
+insert into nation40(nation_code, nation_name)
+values (80,'영국');
+insert into nation40(nation_code, nation_name)
+values (79,'일본');
+insert into nation40(nation_code, nation_name)
+values (78,'베트남');
+commit;
 
+insert into theme40(theme_code, theme_name)
+values (111,'놀이공원');
+insert into theme40(theme_code, theme_name)
+values (113,'놀이공원');
+insert into theme40(theme_code, theme_name)
+values (145,'놀이공원');
+insert into theme40(theme_code, theme_name)
+values (311,'놀이공원');
+insert into theme40(theme_code, theme_name)
+values (121,'놀이공원');
+commit;
+
+insert into manager40(manager_id, manager_pwd, manager_tel)
+values ('페이커',1234, null);
+insert into manager40(manager_id, manager_pwd, manager_tel)
+values ('제우스',1334, null);
+insert into manager40(manager_id, manager_pwd, manager_tel)
+values ('도란',4234, null);
+insert into manager40(manager_id, manager_pwd, manager_tel)
+values ('쵸비',7234, null);
+insert into manager40(manager_id, manager_pwd, manager_tel)
+values ('기인',1934, null);
+commit;
+
+insert into wine_type40(wine_type_code, wine_type_name)
+values (111, '보르도와인');
+insert into wine_type40(wine_type_code, wine_type_name)
+values (113, '미국와인');
+insert into wine_type40(wine_type_code, wine_type_name)
+values (114, '체코와인');
+insert into wine_type40(wine_type_code, wine_type_name)
+values (116, '호주와인');
+insert into wine_type40(wine_type_code, wine_type_name)
+values (119, '화이트와인');
+commit;
+
+insert into wine40(wine_code, wine_name, wine_url, wine_sugar_code, wine_price, wine_vintage, nation_code, wine_type_code, theme_code, today_code)
+values (1100, '화이트와인', URL_RAW.CAST_TO_RAW('faker') , 2, 21000, null, 82, 111, 111, 000);
+
+
+ wine40(
+        wine_code varchar2(26) not null constraint PK_WINE40 primary key,
+        wine_name varchar2(100) not null,
+        wine_url blob ,
+        wine_sugar_code number(2),
+        wine_price number(15) default 0 not null,
+        wine_vintage date ,
+        
+        nation_code varchar2(6) ,
+        wine_type_code varchar2(6) ,
+        theme_code varchar2(6) ,
+        today_code varchar2(6) ,
