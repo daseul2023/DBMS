@@ -22,7 +22,7 @@ temporary tablespace TEMP;
 grant resource,connect to C##HR2;
 
 -- System 계정에서 HR 계정에게 create view 권한을 부여함.
-grant create view to C##HR;
+grant create view to C##HR2;
 
 -- 3. 테이블 스페이스에서 사용량 할당
 alter user C##HR2 quota unlimited on USERS;
