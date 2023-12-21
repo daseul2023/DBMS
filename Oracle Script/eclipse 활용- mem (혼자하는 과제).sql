@@ -8,3 +8,5 @@ create table mem(
 select * from mem;
 
 select *from guestboard;
+
+select *from lab;
