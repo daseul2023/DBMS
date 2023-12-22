@@ -12,10 +12,33 @@ Create Table freeboard (
     replaynum number default 0 , 
     step number default 0
 ); 
-
-select * from freeboard order by id desc;
+select * from freeboard order by id asc;
 
 desc freeboard;
 
 delete freeboard;
 commit;
+
+drop table freeboard;
+
+create table testTbl (
+    id number(4) not null primary key, 
+    name varchar2(50) not null,
+    email varchar2(200) null
+);
+
+select * from testTbl 
+order by id desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
