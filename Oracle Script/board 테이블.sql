@@ -30,3 +30,18 @@ desc users;
 select * from users 
 where id = 'user' and password = '1234';
 
+-- title 컬럼으로 검색하는 쿼리
+select * from board
+where title like '%우제%';
+-- write 컬럼으로 검색하는 쿼리
+select * from board
+where write like '%상혁%';
+-- content 컬럼으로 검색하는 쿼리
+select * from board
+where content like '%MVC%';
+-- regdate 컬럼으로 검색하는 쿼리
+select * from board
+where regdate like '%23/12/26%';
+
+select * from board
+where cnt >10;
